@@ -5,6 +5,7 @@ import { Produk2Zod } from "./zod";
 import slugify from "slugify";
 import { redirect } from "next/navigation";
 import { del } from "@vercel/blob";
+import { revalidatePath } from "next/cache";
 
 export const saveProduk2 = async (
     images: string[],
@@ -84,6 +85,7 @@ export const saveProduk2 = async (
         };
     }
 
+    revalidatePath("/produk2");
     redirect("/produk2");
 };
 
@@ -182,6 +184,8 @@ export const updateProduk2 = async (
         };
 
     }
+
+    revalidatePath("/produk2");
 
     redirect("/produk2");
 };
