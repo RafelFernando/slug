@@ -17,6 +17,9 @@ export default async function EditPage2({
             where: {
                 slug,
             },
+            include: {
+                images: true,
+            },
         });
 
     if (!produk2) {

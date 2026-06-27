@@ -13,22 +13,14 @@ export default function DeleteButtonProduk2({
 
     return (
         <button
+            type="button"
             disabled={isPending}
             onClick={() => {
-                if (
-                    !confirm(
-                        "Hapus produk?"
-                    )
-                )
-                    return;
+                if (!confirm("Hapus produk?")) return;
 
-                startTransition(
-                    async () => {
-                        await deleteProduk2(
-                            id
-                        );
-                    }
-                );
+                startTransition(async () => {
+                    await deleteProduk2(id);
+                });
             }}
         >
             {isPending

@@ -1,6 +1,7 @@
 import { getProduk2 } from "@/lib/kategori-produk-2/data";
 import DeleteButtonProduk2 from "@/components/produk2/delete-button";
 import Link from "next/link";
+import Image from "next/image";
 
 export default async function PageProduk2() {
     const produk =
@@ -24,6 +25,7 @@ export default async function PageProduk2() {
                         <td>Stok</td>
                         <td>Kategori</td>
                         <td>Slug</td>
+                        <td>Image</td>
                         <td>Detail</td>
                     </tr>
                 </thead>
@@ -36,6 +38,15 @@ export default async function PageProduk2() {
                             <td>{produk.harga}</td>
                             <td>{produk.stok}</td>
                             <td>{produk.kategori.namaKategori}</td>
+                            <td className="flex">{produk.images.map((image) => (
+                                <Image
+                                    key={image.id}
+                                    src={image.imageUrl}
+                                    alt=""
+                                    width={100}
+                                    height={100}
+                                />
+                            ))}</td>
                             <td>{produk.slug}</td>
                             <td>
                                 <Link href={`/produk2/${produk.slug}`}>

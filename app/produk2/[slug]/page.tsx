@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getProduk2BySlug } from "@/lib/kategori-produk-2/data";
+import Image from "next/image";
 
 type Props = {
     params: Promise<{
@@ -51,6 +52,16 @@ export default async function DetailProduk2Page({
             <p>
                 Kategori: {produk2.kategori?.namaKategori}
             </p>
+
+            {produk2.images.map((image) => (
+                <Image
+                    key={image.id}
+                    src={image.imageUrl}
+                    alt=""
+                    width={100}
+                    height={100}
+                />
+            ))}
         </div>
     );
 }

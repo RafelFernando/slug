@@ -43,6 +43,19 @@ model Produk2 {
   kategoriId String
   kategori   Kategori @relation(fields: [kategoriId], references: [id])
 
+  images ProdukImage[]
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model ProdukImage {
+  id String @id @default(cuid())
+
+  imageUrl String
+
+  produkId String
+  produk   Produk2 @relation(fields: [produkId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
 }

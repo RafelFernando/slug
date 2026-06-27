@@ -5,7 +5,11 @@ export async function getProduk2() {
         const produk2 = await prisma.produk2.findMany({
             include: {
                 kategori: true,
+                images: true
             },
+            orderBy: {
+                createdAt: 'asc'
+            }
         });
 
         return produk2;
@@ -31,6 +35,9 @@ export const getProduk2ById = async (
     try {
         return await prisma.produk2.findUnique({
             where: { id },
+            include: {
+                images: true,
+            }
         });
     } catch (error) {
         console.log(error);
@@ -49,6 +56,7 @@ export const getProduk2BySlug = async (
                 },
                 include: {
                     kategori: true,
+                    images: true
                 },
             });
 
