@@ -6,6 +6,8 @@ export default function Home() {
       <Link href="/kategori" className="underline text-blue-500 mr-5">Kategori</Link>
       <Link href="/produk" className="underline text-blue-500 mr-5">Produk 1</Link>
       <Link href="/produk2" className="underline text-blue-500 mr-5">Produk 2 (Include Kategori)</Link>
+      <Link href="/riwayat" className="underline text-blue-500 mr-5">Riwayat</Link>
+
     </div>
   );
 }
